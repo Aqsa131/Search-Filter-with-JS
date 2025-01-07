@@ -5,7 +5,7 @@ let myApi = async()=>{
     let getApi = await fetch('https://dummyjson.com/recipes')
     let convertToJson = await getApi.json()
     recipes = convertToJson.recipes
-    // console.log(convertToJson);
+    console.log(convertToJson);
         createCard(recipes)
     }
 
@@ -25,11 +25,14 @@ let createCard=(newCard)=>{
         let newCard = document.createElement('div')
         newCard.setAttribute('class' , 'newDiv')
         newCard.innerHTML =  `
-            <div class="product-title"><h3>${product.name}</h3></div>
+            <div style="font-style: italic;" class="product-title"><h3>${product.name}</h3></div>
             <div class="product-card">
                 <img class="product-image" src="${product.image}">
                 <div class="product-info">
+                <h4 style="margin: 0; padding-left:10px; font-style: italic;">Ingredients:</h4>
                 <div class="product-ingredients">${product.ingredients}</div>
+                <h4 style="margin: 0; padding-left:10px; font-style: italic;">Meal Type:</h4>
+                <div class="product-ingredients">${product.mealType}</div>
                 </div>
             </div>
         `
